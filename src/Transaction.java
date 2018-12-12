@@ -1,4 +1,4 @@
-public abstract class Transaction extends Denomination{
+public abstract class Transaction{
    private int accountNumber; // indicates account involved
    private Screen screen; // ATM screen
    private BankDatabase bankDatabase; // account database
