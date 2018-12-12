@@ -33,7 +33,7 @@ public class Info extends Transaction {
       
       // display the balance information on the screen
       screen.displayMessageLine("\nUser Information:");
-      screen.displayMessage(" - User Name     : "); 
+      screen.displayMessage(" - Username     : "); 
       screen.displayMessageLine(bankDatabase.getAccName(getAccountNumber()));
       screen.displayMessage(" - Bank Name     : ");
       screen.displayMessageLine(bankDatabase.getBName(getAccountNumber()));
