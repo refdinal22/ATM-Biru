@@ -18,23 +18,6 @@ public class Transfer extends Transaction{
         this.keypad = keypad;
     }
     @Override
-//    public void execute() {
-//        double trf;        
-//        amount = transferAccount();
-//        if (amount != 0){
-//            getScreen().displayMessage("\nEnter Amount Transfer : ");
-//            trf = keypad.getInput(); // receive input of deposit amount
-//            if(super.getBankDatabase().getAvailableBalance(getAccountNumber()) >= trf){
-//                getBankDatabase().debit(getAccountNumber(), trf);
-//                getBankDatabase().credit(amount, trf);
-//                maketxt(amount, trf);
-//            }
-//            else{
-//                getScreen().displayMessage("\nInsufficient");
-//            }
-//        }
-//        else getScreen().displayMessage("Account Not Available");
-//    }
     
     
     public void execute() {      
@@ -47,14 +30,21 @@ public class Transfer extends Transaction{
        if (amount != 6){
 
            if (!getBankDatabase().getTrfH(getAccountNumber()).isEmpty()){
-               getBankDatabase().showAcc(getAccountNumber());
-               System.out.println("\nSelect Account : ");
-
+               System.out.println("\n\t\tMENU");
+               System.out.println("1. Enter Your Own Account Number");
+               System.out.println("2. Select from transfer History");
+               System.out.println("\n\nEnter the choice : \n");
+               
+//               System.out.println("\nSelect Account : ");
+               
                int pil=keypad.getInput();
+               if(pil!=1&&pil==2){
+                   getBankDatabase().showAcc(getAccountNumber());
+                   pil=keypad.getInput();
                if(pil<=getBankDatabase().currsize(getAccountNumber())&& pil!=0){
                    tamp = getBankDatabase().search(getAccountNumber(), pil);
                }
-      
+               }
 
            }
            if (tamp ==0) tamp = transferAccount();
