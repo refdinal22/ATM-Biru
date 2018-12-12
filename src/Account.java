@@ -92,11 +92,13 @@ public class Account {
    }
    
    public void showHistory(){
-        for(int i = 0 ; i<History.size();i++){   
-         System.out.println(History.get(i));
-        }
+          if(History.size() >=1 ){
+       for(int i = 0 ; i<History.size();i++){
+         System.out.println(History.get(i));}
+   }else{
+           System.out.println("There's no history")   ;
+          }
    }
-   
    /**** rico ****/
     public Queue<TrfHistory> getLastTrans() {
         return lastTrans;
