@@ -55,18 +55,18 @@ public class Withdrawal extends Transaction {
       Screen screen = getScreen(); // get screen reference
       
       // array of amounts to correspond to menu numbers
-      int[] amounts = {0, SHARDS,
-                          SHARDS*2, 
-                          SHARDS*3,
-                          SHARDS*5,
-                          SHARDS*10};
+      int[] amounts = {0, Denomination.SHARDS,
+                          Denomination.SHARDS*2, 
+                          Denomination.SHARDS*3,
+                          Denomination.SHARDS*5,
+                          Denomination.SHARDS*10};
 
       // loop while no valid choice has been made
       while (userChoice == 0) {
          // display the withdrawal menu
          screen.displayMessageLine("\nWithdrawal Menu:");
          /*************************** UPDATE ***************************/
-         screen.displayMessageLine("(Withdraw in $"+SHARDS+" denomination)");
+         screen.displayMessageLine("(Withdraw in $"+Denomination.SHARDS+" denomination)");
          screen.displayMessageLine("0 - Custom Nominal");
          /************************* END UPDATE *************************/
          screen.displayMessageLine("1 - $"+amounts[1]);
@@ -109,7 +109,7 @@ public class Withdrawal extends Transaction {
         Scanner sc = new Scanner(System.in);
         for(;;){
             int nominal = sc.nextInt();
-            if (nominal%SHARDS==0) return nominal;
+            if (nominal%Denomination.SHARDS==0) return nominal;
             else screen.displayMessageLine("\nInvalid nominal. Try Again.");
         }
     }
