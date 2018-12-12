@@ -1,0 +1,10 @@
+     *** ATM ***
+
+05/12/2018     23:13:04
+
+TRANSFER
+To    : 8765
+Total : $ 10.0
+
+
+     THANK YOU
