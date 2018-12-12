@@ -13,7 +13,6 @@ public class Zakat extends Transaction{
     public void execute() {
         int members;
         getScreen().displayMessage("      Zakat Fitrah\n\n");
-        getScreen().displayMessage("      Zakat\n");
         getScreen().displayMessage("The cost of zakat for one person is $ 2.5");
         members = keypad.getInput();
         if(members>0){
