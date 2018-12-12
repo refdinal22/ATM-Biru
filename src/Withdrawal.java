@@ -109,7 +109,7 @@ public class Withdrawal extends Transaction {
         Scanner sc = new Scanner(System.in);
         for(;;){
             int nominal = sc.nextInt();
-            if (nominal%20==0) return nominal;
+            if (nominal%SHARDS==0) return nominal;
             else screen.displayMessageLine("\nInvalid nominal. Try Again.");
         }
     }
