@@ -14,7 +14,7 @@ public class Keypad {
       while(!valid){
      try{
      i= input.nextInt();
-     if(i>0){valid=true;}
+     if(i>=0){valid=true;}
      else {valid=false; System.out.println("The format must number higher than 0. Try again : ");}
      }catch (NumberFormatException ex) {
     //handle exception here
