@@ -12,18 +12,21 @@ public class Zakat extends Transaction{
     @Override
     public void execute() {
         int members;
-        getScreen().displayMessage("      Zakat\n\n");
-        getScreen().displayMessage("Enter Number Of Family Members : ");
+        getScreen().displayMessage("      Zakat Fitrah\n\n");
+        getScreen().displayMessage("      Zakat\n");
+        getScreen().displayMessage("The cost of zakat for one person is $ 2.5");
         members = keypad.getInput();
         if(members>0){
             double amount = zakat(members);
             if(super.getBankDatabase().getAvailableBalance(getAccountNumber()) >= amount){
+                getScreen().displayMessage("Money Paid Is : $ "+amount);
                 getBankDatabase().debit(getAccountNumber(), amount);
                 getBankDatabase().credit(4321, amount);
                 
                 System.out.println("Success"); 
                 System.out.println("Thank You"); 
             }
+            
         }
         else System.out.println("Cancelling"); 
     }
