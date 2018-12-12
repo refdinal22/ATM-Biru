@@ -53,6 +53,9 @@ public class Transfer extends Transaction{
                if(tamp!=0){
                     getBankDatabase().debit(getAccountNumber(), amount);
                     getBankDatabase().save(tamp, amount);
+                    //menulis di File
+                    maketxt(tamp, amount);
+                    
                     if(getBankDatabase().currsize(getAccountNumber())<5){
                         curr = getBankDatabase().getTrfH(getAccountNumber());
                         if(curr.size() < 5){
@@ -67,11 +70,6 @@ public class Transfer extends Transaction{
                         curr.add(new TrfHistory(amount, tamp));         
                         getBankDatabase().setTrfH(getAccountNumber(), curr);
                         }
-                    //set history
-     //               setH = getBankDatabase().getHistory(tamp);
-     //               setH[0] = new TrfHistory(amount, tamp);                
-     //               
-     //               getBankDatabase().setHistory(getAccountNumber(), setH);
 
                     System.out.println("Your cash has been transferred. Thank you for using this ATM.\n" +"");
                }
