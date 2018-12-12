@@ -25,6 +25,8 @@ public class Zakat extends Transaction{
                 System.out.println("Success"); 
                 System.out.println("Thank You"); 
             }
+            else
+                System.out.println("Insufficient Balance");
             
         }
         else System.out.println("Cancelling"); 
