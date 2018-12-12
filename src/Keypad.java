@@ -8,7 +8,7 @@ public class Keypad {
    } 
 
    public int getInput() {
-      
+      //author fajar
        boolean valid=false;
        int i=0;
       while(!valid){
