@@ -20,18 +20,26 @@ public class ChangePIN extends Transaction{
        int pin=keypad.getInput();
        return super.getBankDatabase().authenticateUser(super.getAccountNumber(), pin);
    }
+   private boolean isItNew(int pin){
+      return super.getBankDatabase().authenticateUser(super.getAccountNumber(),pin);
+   }
    private void setNewPIN(){
        boolean confirmed= false;
        int pin=0;
        while(!confirmed){
        System.out.print("Input your new PIN : ");
        pin=keypad.getInput();
+       if(isItNew(pin)){
+           System.out.println("Your new PIN must not be the same as it was. Try again!");
+           confirmed=false;
+       }else{
        System.out.print("Konfirm your new PIN : ");
        int pin2=keypad.getInput();
        confirmed=confirmNewPIN(pin, pin2);
        if(confirmed){
            System.out.println("PIN confirmed");
        }else System.out.println("PIN not confirmed. Try again!");
+       }
        }
        getBankDatabase().SetPIN(pin, getAccountNumber());
        
