@@ -162,11 +162,11 @@ public class ATM extends Denomination{
             int choice = keypad.getInput();
             switch (choice) {
                 case 1 :
-                    screen.displayMessage("Add cash to dispenser in $"+SHARDS+" denomination : ");
+                    screen.displayMessage("Add cash to dispenser in $"+SHARDS+" denomination : $");
                     int nominal = sc.nextInt();
                     if(nominal>0){
-                        cashDispenser.refillCash(nominal/SHARDS);
-                        screen.displayMessageLine("Operation Succeed add "+nominal/SHARDS+" of "+SHARDS);
+                        cashDispenser.refillCash(nominal);
+                        screen.displayMessageLine("Operation Succeed add "+nominal/SHARDS+" of $"+SHARDS);
                     }
                     else screen.displayMessageLine("Operation Canceled");
                     break;
