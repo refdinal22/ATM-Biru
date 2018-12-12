@@ -11,7 +11,7 @@ public class BankDatabase {
       accounts[1] = new Account(12345, 54321, 1000.0, 1200.0, "Refdinal","BRI");
       accounts[2] = new Account(8765, 5678, 200.0, 200.0, "Luthfi","BRI");  
       //account untuk menampung zakat
-      accounts[3] = new Account(4321, 123, 100.0, 100.0,"Rumah Zakat","BRI");  
+      accounts[3] = new Account(54321, 123, 100.0, 100.0,"Rumah Zakat","BRI");  
       
       //Virtual Account
       vAccounts = new virtualAccount(11223,8765,40); 
