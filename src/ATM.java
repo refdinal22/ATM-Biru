@@ -43,7 +43,7 @@ public class ATM {
          while (!userAuthenticated) {
             screen.displayMessageLine("\nWelcome!");       
             authenticateUser(); // authenticate user
-            if (iBlokir > 2){
+            if (iBlokir >= 2){
                 
                 System.out.println("Your card has been blocked.");   
                 if(bankDatabase.availableAccount(currentAccountNumber)){
