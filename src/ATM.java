@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ATM extends Denomination{
+public class ATM {
    private boolean userAuthenticated; // whether user is authenticated
    private int currentAccountNumber; // current user's account number
    private Screen screen; // ATM's screen
@@ -153,7 +153,7 @@ public class ATM extends Denomination{
         Scanner sc = new Scanner(System.in);
             //screen.displayMessageLine("1 - Change Denomination");
             screen.displayMessageLine("NOW - "+cashDispenser.getCashCount()
-                                              +" ply in $"+SHARDS+" shards");
+                                              +" ply in $"+Denomination.SHARDS+" shards");
             
             screen.displayMessageLine("1 - Add Cash To Dispenser");
             screen.displayMessageLine("2 - Exit");
@@ -162,11 +162,11 @@ public class ATM extends Denomination{
             int choice = keypad.getInput();
             switch (choice) {
                 case 1 :
-                    screen.displayMessage("Add cash to dispenser in $"+SHARDS+" denomination : $");
+                    screen.displayMessage("Add cash to dispenser in $"+Denomination.SHARDS+" denomination : $");
                     int nominal = sc.nextInt();
                     if(nominal>0){
                         cashDispenser.refillCash(nominal);
-                        screen.displayMessageLine("Operation Succeed add "+nominal/SHARDS+" of $"+SHARDS);
+                        screen.displayMessageLine("Operation Succeed add "+nominal/Denomination.SHARDS+" of $"+Denomination.SHARDS);
                     }
                     else screen.displayMessageLine("Operation Canceled");
                     break;
