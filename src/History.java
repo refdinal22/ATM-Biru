@@ -31,7 +31,10 @@ public class History extends Transaction  {
         int enter = keypad.getInput();
         switch(enter){
             case 1 : getBankDatabase().showHistory(getAccountNumber());break;
-            case 2 : getBankDatabase().show(getAccountNumber());break;
+            case 2 : 
+                if(!getBankDatabase().getTrfH(getAccountNumber()).isEmpty()){
+                getBankDatabase().show(getAccountNumber());
+            }else System.out.println("Belum ada Transfer yang tercipta");break;
             case 3 : 
                 if(!getBankDatabase().getTrfH(getAccountNumber()).isEmpty()){
                     
