@@ -23,6 +23,7 @@ public class Transfer extends Transaction{
     public void execute() {      
       int tamp=0;
       Queue curr;
+      boolean isRight=true;
       BankDatabase bankDatabase = getBankDatabase();
       Screen screen = getScreen();
       amount=displayMenuOfAmounts();
@@ -41,6 +42,7 @@ public class Transfer extends Transaction{
                if(pil!=1&&pil==2){
                    getBankDatabase().showAcc(getAccountNumber());
                    pil=keypad.getInput();
+                   
                if(pil<=getBankDatabase().currsize(getAccountNumber())&& pil!=0){
                    tamp = getBankDatabase().search(getAccountNumber(), pil);
                }
@@ -48,8 +50,11 @@ public class Transfer extends Transaction{
 
            }
            if (tamp ==0) tamp = transferAccount();
-           
-           if(super.getBankDatabase().getAvailableBalance(getAccountNumber())>=amount){
+           if(tamp == getAccountNumber()){
+               System.out.println("You can't transfer to your own account!");
+               isRight=false;
+           }else isRight=true;
+           if(super.getBankDatabase().getAvailableBalance(getAccountNumber())>=amount&&isRight==true){
                if(tamp!=0){
                     getBankDatabase().debit(getAccountNumber(), amount);
                     getBankDatabase().save(tamp, amount);
@@ -75,7 +80,7 @@ public class Transfer extends Transaction{
                }
                else System.out.println("\nAccount Not Found!\n");
             }
-           else System.out.println("\nCanceling Transaction. . .\n");
+           else System.out.println("Transaction invalid!\nCanceling Transaction. . .\n");
         }
     }
     
