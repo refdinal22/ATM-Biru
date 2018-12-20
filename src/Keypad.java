@@ -12,14 +12,14 @@ public class Keypad {
       int number;
     do {
     while (!input.hasNextInt()) {
-        System.out.print("That's not a number!\nTry again!");
+        System.out.print("Invalid input!\nTry again!");
         input.next(); // this is important!
     }
     number = input.nextInt();
-    if(number<=0){
-        System.out.print("Please input number that is not negative!\nTry again!was");
+    if(number<0){
+        System.out.print("Invalid input!\nTry again!");
     }
-    } while (number <= 0);
+    } while (number < 0);
        return number;
       // user enters an integer
       
