@@ -153,7 +153,6 @@ public class ATM {
             break;
             case 2 : 
                 return true;
-                break;
             default : 
                 screen.displayMessageLine("You did not enter a valid selection");
                 break;
