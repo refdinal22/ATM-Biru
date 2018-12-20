@@ -9,22 +9,20 @@ public class Keypad {
 
    public int getInput() {
       //author fajar
-       boolean valid=false;
-       int i=0;
-      while(!valid){
-     try{
-     i= input.nextInt();
-     if(i>=0){valid=true;}
-     else {valid=false; System.out.println("The format must number higher than 0. Try again : ");}
-     }catch (NumberFormatException ex) {
-    //handle exception here
-              System.out.println("The format must number higher than 0. Try again : ");
-    valid=false;
+      int number;
+    do {
+    while (!input.hasNextInt()) {
+        System.out.print("That's not a number!\nTry again!");
+        input.next(); // this is important!
     }
-      }
-       return i;
+    number = input.nextInt();
+    if(number<=0){
+        System.out.print("Please input number that is not negative!\nTry again!was");
+    }
+    } while (number <= 0);
+       return number;
       // user enters an integer
       
    } 
-   
+    
 } 
